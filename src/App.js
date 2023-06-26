@@ -140,8 +140,7 @@ function App() {
           </p>
           <p className="checkbox">
             <span className="title">Checkbox : </span> {`[ `}
-            {checkbox.length > 0 ? checkbox.join(",") + "," : ""}
-            {`]`}
+            {checkbox.length > 0 ? checkbox.join(",") + "," + " " : ""} {`]`}
           </p>
         </div>
       </div>
