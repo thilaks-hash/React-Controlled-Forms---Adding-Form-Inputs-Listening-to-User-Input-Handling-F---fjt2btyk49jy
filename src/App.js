@@ -5,7 +5,7 @@ import { useState } from "react";
 function App() {
   const [text, setText] = useState("");
   const [radio, setRadio] = useState("");
-  const [checkbox, setCheckbox] = useState([]);
+  const [checkbox, setCheckbox] = useState("");
   const textupdate = (e) => {
     setText(e.target.value);
   };
