@@ -140,7 +140,7 @@ function App() {
           </p>
           <p className="checkbox">
             <span className="title">Checkbox : </span> {`[ `}
-            {checkbox.join(",")}
+            {checkbox.join(",") + ","}
             {`]`}
           </p>
         </div>
