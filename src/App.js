@@ -5,7 +5,7 @@ import { useState } from "react";
 function App() {
   const [text, setText] = useState("");
   const [radio, setRadio] = useState("");
-  const [checkbox, setCheckbox] = useState("");
+  const [checkbox, setCheckbox] = useState([false, false, false]);
   const textupdate = (e) => {
     setText(e.target.value);
   };
@@ -13,12 +13,9 @@ function App() {
     setRadio(e.target.value);
   };
   const checkboxUpdate = (e) => {
-    const { value, checked } = e.target;
-    if (checked) {
-      setCheckbox((prevValues) => [...prevValues, value]);
-    } else {
-      setCheckbox((prevValues) => prevValues.filter((val) => val != value));
-    }
+    let temp = checkbox;
+    temp[e.target.value - 1] = !checkbox[e.target.value - 1];
+    setCheckbox([...temp]);
   };
   return (
     <div className="container">
@@ -140,7 +137,11 @@ function App() {
           </p>
           <p className="checkbox">
             <span className="title">Checkbox : </span> {`[ `}
-            {checkbox.length > 0 ? checkbox.join(",") + "," + " " : ""} {`]`}
+            {checkbox &&
+              checkbox.map((item, index) => (
+                <>{item && <span>{index + 1}, </span>}</>
+              ))}
+            {`]`}
           </p>
         </div>
       </div>
